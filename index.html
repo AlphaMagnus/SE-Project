@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>Blood Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html" id="loginBtn" class="login-btn">Login</a></li> <!-- This will be replaced by username -->
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Donate Blood, Save Lives</h2>
+        <p>Join us in making a difference. Your donation can save lives!</p>
+        <button onclick="showMessage()">Donate Now</button>
+        <p id="message"></p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We connect blood donors with recipients in need. Our mission is to ensure safe and timely blood supply.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Blood Bank Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
