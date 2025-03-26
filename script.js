@@ -56,3 +56,8 @@ function checkLoginStatus() {
         document.querySelector(".container").appendChild(userBox);
     }
 }
+
+
+document.getElementById("donorbtn").addEventListener("click", function () {
+    window.location.href = "donor.html";
+});
