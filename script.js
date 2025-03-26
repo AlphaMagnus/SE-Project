@@ -1,48 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Fix for year element
-    let yearElement = document.getElementById("year");
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    } else {
-        console.error("Element with ID 'year' not found!");
-    }
-
-    let messageElement = document.getElementById("message");
-    if (messageElement) {
-        messageElement.textContent = "Thank you for your willingness to donate! We will contact you soon.";
-    } else {
-        console.error("Element with ID 'message' not found!");
-    }
-
-    checkLoginStatus(); // Ensure login status is checked only after DOM loads
+    checkLoginStatus();
 
     let loginForm = document.getElementById("loginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form refresh
-
-            let emailInput = document.querySelector("#loginForm input[type='email']");
-            if (emailInput) {
-                let email = emailInput.value;
-                let username = email.split("@")[0]; // Extract username
-
-                localStorage.setItem("loggedInUser", username); // Store user info
-                window.location.href = "index.html"; // Redirect
-            } else {
-                console.error("Email input field not found!");
-            }
+            event.preventDefault();
+            loginAs("donor");
         });
     }
 });
-
-function showMessage() {
-    let messageElement = document.getElementById("message");
-    if (messageElement) {
-        messageElement.textContent = "Thank you for your willingness to donate! We will contact you soon.";
-    } else {
-        console.error("Element with ID 'message' not found!");
-    }
-}
 
 function showForm(formType) {
     let loginForm = document.getElementById("loginForm");
@@ -50,21 +16,29 @@ function showForm(formType) {
     let loginBtn = document.getElementById("loginBtn");
     let registerBtn = document.getElementById("registerBtn");
 
-    if (loginForm && registerForm && loginBtn && registerBtn) {
-        if (formType === 'login') {
-            loginForm.style.display = "block";
-            registerForm.style.display = "none";
-            loginBtn.classList.add("active");
-            registerBtn.classList.remove("active");
-        } else if (formType === 'register') {
-            loginForm.style.display = "none";
-            registerForm.style.display = "block";
-            loginBtn.classList.remove("active");
-            registerBtn.classList.add("active");
-        }
-    } else {
-        console.error("One or more form elements not found!");
+    if (formType === 'login') {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        loginBtn.classList.add("active");
+        registerBtn.classList.remove("active");
+    } else if (formType === 'register') {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        loginBtn.classList.remove("active");
+        registerBtn.classList.add("active");
     }
+}
+
+function loginAsDonor() {
+    window.location.href = "donor.html";
+}
+
+function loginAsHospital() {
+    window.location.href = "hospital.html";
+}
+
+function redirectToAdmin() {
+    window.location.href = "admin.html";
 }
 
 function checkLoginStatus() {
@@ -73,12 +47,12 @@ function checkLoginStatus() {
     if (loggedInUser) {
         let loginButton = document.getElementById("loginBtn");
         if (loginButton) {
-            loginButton.style.display = "none"; // Hide login button
+            loginButton.style.display = "none";
         }
 
         let userBox = document.createElement("div");
         userBox.classList.add("user-box");
         userBox.innerHTML = `<span>👤 ${loggedInUser}</span>`;
-        document.querySelector("nav ul").appendChild(userBox);
+        document.querySelector(".container").appendChild(userBox);
     }
 }

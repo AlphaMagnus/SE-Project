@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Blood Bank</h2>
+            <ul>
+                <li class="active">Dashboard</li>
+                <li>Donors</li>
+                <li>Requests</li>
+                <li>Blood Stock</li>
+                <li>Reports</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h2>Dashboard Overview</h2>
+            </header>
+            
+            <!-- Stats Cards -->
+            <section class="cards">
+                <div class="card">
+                    <h3>Total Donors</h3>
+                    <p>1200</p>
+                </div>
+                <div class="card">
+                    <h3>Blood Requests</h3>
+                    <p>340</p>
+                </div>
+                <div class="card">
+                    <h3>Available Units</h3>
+                    <p>890</p>
+                </div>
+                <div class="card">
+                    <h3>Hospitals Connected</h3>
+                    <p>45</p>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts">
+                <canvas id="bloodStockChart"></canvas>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
